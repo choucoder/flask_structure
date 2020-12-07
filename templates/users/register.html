@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} {{ name }} {% endblock %}</h1>
+    <form class="form" method="POST" action="{{ url_for('user_register') }}">
+        <div class="form-row">
+            <div class="col-md-12" >
+                <label for="name">Name</label>
+                <input class="form-control" type="text" name="name" id="name">
+            </div>
+            <div class="col-md-12" >
+                <label for="surname">Surname</label>
+                <input class="form-control" type="text" name="surname" id="surname">
+            </div>
+            <div class="col-md-12" >
+                <label for="password">Password</label>
+                <input class="form-control" type="text" name="password" id="password">
+            </div>
+        </div>
+        </br>
+        <input class="btn btn-primary" type="submit" name="create" value="Register">
+    </form>
+{% endblock %}
+
+{% block additionaljs %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}

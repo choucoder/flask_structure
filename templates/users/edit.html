@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} {{ name }} {% endblock %}</h1>
+    <form class="form" method="POST" action="{{ url_for('user_edit', id=user.id) }}">
+        <div class="form-row">
+            <div class="col-md-12" >
+                <label for="name">Name</label>
+                <input class="form-control" type="text" name="name" id="name" value="{{ user.name }}">
+            </div>
+            <div class="col-md-12" >
+                <label for="surname">Surname</label>
+                <input class="form-control" type="text" name="surname" id="surname" value="{{ user.surname }}">
+            </div>
+            <div class="col-md-12" >
+                <label for="password">Password</label>
+                <input class="form-control" type="text" name="password" id="password" value="{{ user.password }}">
+            </div>
+        </div>
+        </br>
+        <input class="btn btn-primary" type="submit" name="update" value="Update">
+    </form>
+{% endblock %}
+
+{% block additionaljs %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}

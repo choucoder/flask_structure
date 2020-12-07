@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} {{ name }} {% endblock %}</h1>
+    <table class="table">
+        <thead>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>Clave</th>
+        </thead>
+        <tbody>
+            {% for user in users %}
+            <tr>
+                <td>{{ user['name'] }}</td>
+                <td>{{ user['surname'] }}</td>
+                <td>{{ user['password'] }}</td>
+                <td><a class="btn btn-sm btn-info" href="{{ url_for('user_details', id=user.id) }}">Detalles</a></td>
+                <td><a class="btn btn-sm btn-success" href="{{ url_for('user_edit', id=user.id) }}">Editar</a></td>
+                <td><a class="btn btn-sm btn-danger" href="{{ url_for('user_details', id=user.id) }}">Eliminar</a></td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('user_register') }}" class="btn btn-primary"> Create user </a>
+{% endblock %}
+
+{% block additionaljs %}
+<script type="text/javascript">
+
+</script>
+{% endblock %}
